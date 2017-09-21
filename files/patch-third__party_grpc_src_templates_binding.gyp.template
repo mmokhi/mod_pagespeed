@@ -1,0 +1,55 @@
+--- third_party/grpc/src/templates/binding.gyp.template.orig	2016-08-19 00:55:10 UTC
++++ third_party/grpc/src/templates/binding.gyp.template
+@@ -93,7 +93,8 @@
+               'cflags': [
+                 '-ftest-coverage',
+                 '-fprofile-arcs',
+-                '-O0'
++                '-O0',
++                '-I/usr/local/include'
+               ],
+               'ldflags': [
+                 '-ftest-coverage',
+@@ -148,7 +149,8 @@
+             'cflags': [
+               '-std=c99',
+               '-Wall',
+-              '-Werror'
++              '-Werror',
++              '-I/usr/local/include'
+             ],
+             'target_name': '${lib.name}',
+             'product_prefix': 'lib',
+@@ -178,7 +180,8 @@
+         'cflags': [
+           '-std=c99',
+           '-Wall',
+-          '-Werror'
++          '-Werror',
++          '-I/usr/local/include'
+         ],
+         'target_name': '${lib.name}',
+         'product_prefix': 'lib',
+@@ -212,9 +215,10 @@
+           '-Wall',
+           '-pthread',
+           '-g',
+-          '-zdefs',
++          '-Wl,-zdefs',
+           '-Werror',
+-          '-Wno-error=deprecated-declarations'
++          '-Wno-error=deprecated-declarations',
++          '-I/usr/local/include'
+         ],
+         'ldflags': [
+           '-g'
+@@ -225,7 +229,8 @@
+               'MACOSX_DEPLOYMENT_TARGET': '10.9',
+               'OTHER_CFLAGS': [
+                 '-stdlib=libc++',
+-                '-std=c++11'
++                '-std=c++11',
++                '-I/usr/local/include'
+               ]
+             }
+           }],
